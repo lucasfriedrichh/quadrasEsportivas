@@ -5,8 +5,8 @@ BEGIN
     DECLARE total_pagamentos DECIMAL(10,2);
     DECLARE valor_medio DECIMAL(10,2);
     
-    SELECT COUNT(*) INTO total_reservas FROM reserva WHERE idclientes = id_cliente;
-    SELECT SUM(valor) INTO total_pagamentos FROM pagamento WHERE idreserva IN (SELECT id FROM reserva WHERE idclientes = id_cliente);
+    SELECT COUNT(*) INTO total_reservas FROM Reserva WHERE idClientes = id_cliente;
+    SELECT SUM(valor) INTO total_pagamentos FROM Pagamento WHERE idReserva IN (SELECT id FROM Reserva WHERE idClientes = id_cliente);
     
     IF total_reservas > 0 THEN
         SET valor_medio = total_pagamentos / total_reservas;
